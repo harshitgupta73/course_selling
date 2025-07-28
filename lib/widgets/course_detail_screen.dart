@@ -186,7 +186,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                       const SizedBox(width: 24),
                       _buildStatItem(
                         icon: Icons.access_time,
-                        value: widget.chapter.duration.toString(),
+                        value: "${widget.chapter.duration} days",
                         label: 'Duration',
                         color: Colors.orange,
                       ),
@@ -384,7 +384,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                               'name': 'Course Purchase',
                               'description': widget.chapter.name,
                               'prefill': {
-                                'email': userController.user.value!.email,
+                                'email': userController.user.value != null ? userController.user.value!.email : '',
                               },
                               'external': {
                                 'wallets': ['paytm']

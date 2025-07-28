@@ -413,23 +413,23 @@ class SubjectDetail extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 24),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const Text(
+                Text(
                   'Chapters',
                   style: TextStyle(
                     fontSize: 20,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                ElevatedButton.icon(
-                  icon: const Icon(Icons.edit),
-                  label: const Text('Manage Chapters'),
-                  onPressed: () => Get.to(() => ChapterManagementScreen(
-                        subject: subject,
-                      )),
-                ),
+                // ElevatedButton.icon(
+                //   icon: const Icon(Icons.edit),
+                //   label: const Text('Manage Chapters'),
+                //   onPressed: () => Get.to(() => ChapterManagementScreen(
+                //         subject: subject,
+                //       )),
+                // ),
               ],
             ),
             const SizedBox(height: 16),

@@ -443,61 +443,60 @@ class _AllChaptersManagementScreenState
             onPressed: () => Navigator.pop(context),
             child: const Text('Cancel'),
           ),
-          ElevatedButton(
-            onPressed: () async {
-              setState(() {
-                isLoading=true;
-              });
-              if (formKey.currentState!.validate()) {
-                if (filePickerController.filePath.value.isNotEmpty) {
-                  final file = File(filePickerController.filePath.value);
-                  final url = await storageServices.uploadPdf(file);
+          Obx(() => ElevatedButton(
+              onPressed: () async {
 
-                  final newChapter = Chapter(
-                    name: titleController.text,
-                    description: descriptionController.text,
-                    duration: int.parse(durationController.text),
-                    category: courseController.selectedCategory.value!.name,
-                    subject: courseController.selectedSubject.value!.name,
-                    price: double.tryParse(priceController.text) ?? 0.0,
-                    pdf: url,
-                    rating: 0.0,
-                    timestamp: DateTime.now(),
-                  );
+                if (formKey.currentState!.validate()) {
+                  if (filePickerController.filePath.value.isNotEmpty) {
+                    courseController.startLoading();
+                    final file = File(filePickerController.filePath.value);
+                    final url = await storageServices.uploadPdf(file);
 
-                  await chapterService.addChapter(newChapter);
-                } else {
+                    final newChapter = Chapter(
+                      name: titleController.text,
+                      description: descriptionController.text,
+                      duration: int.parse(durationController.text),
+                      category: courseController.selectedCategory.value!.name,
+                      subject: courseController.selectedSubject.value!.name,
+                      price: double.tryParse(priceController.text) ?? 0.0,
+                      pdf: url,
+                      rating: 0.0,
+                      timestamp: DateTime.now(),
+                    );
+
+                    await chapterService.addChapter(newChapter);
+                  } else {
+                    Get.snackbar(
+                      'Error',
+                      'Please upload a PDF file',
+                      backgroundColor: Colors.red,
+                      colorText: Colors.white,
+                      snackPosition: SnackPosition.BOTTOM,
+                    );
+                  }
+
+                  courseController.stopLoading();
+
+                  Navigator.pop(context);
+
                   Get.snackbar(
-                    'Error',
-                    'Please upload a PDF file',
-                    backgroundColor: Colors.red,
+                    'Success',
+                    'Chapter added successfully',
+                    backgroundColor: Colors.green,
                     colorText: Colors.white,
                     snackPosition: SnackPosition.BOTTOM,
+                    margin: const EdgeInsets.all(16),
+                    duration: const Duration(seconds: 3),
                   );
+                  courseController.loadChapters();
                 }
-                setState(() {
-                  isLoading=false;
-                });
-
-                Navigator.pop(context);
-
-                Get.snackbar(
-                  'Success',
-                  'Chapter added successfully',
-                  backgroundColor: Colors.green,
-                  colorText: Colors.white,
-                  snackPosition: SnackPosition.BOTTOM,
-                  margin: const EdgeInsets.all(16),
-                  duration: const Duration(seconds: 3),
-                );
-                courseController.loadChapters();
-              }
-            },
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.indigo,
-              foregroundColor: Colors.white,
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.indigo,
+                foregroundColor: Colors.white,
+              ),
+              child: courseController.isLoading.value ? Center(child: CircularProgressIndicator(),):const Text('Add'),
             ),
-            child: const Text('Add'),
           ),
         ],
       ),
@@ -508,7 +507,9 @@ class _AllChaptersManagementScreenState
     final titleController = TextEditingController(text: chapter.name);
     final descriptionController =
         TextEditingController(text: chapter.description);
-    final durationController = TextEditingController(text: int.parse(chapter.duration as String).toString());
+    final durationController = TextEditingController(
+      text: chapter.duration.toString(),
+    );
     final priceController =
         TextEditingController(text: chapter.price.toString());
 

@@ -32,6 +32,9 @@ class CourseController extends GetxController {
   final error = RxnString();
   var searchQuery = ''.obs;
 
+  void startLoading() => isLoading.value=true;
+  void stopLoading() => isLoading.value=false;
+
   var filteredSubjects = <Subject>[].obs;
   var filteredChapters = <Chapter>[].obs;
 
