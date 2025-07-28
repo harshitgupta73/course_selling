@@ -1,0 +1,53 @@
+name: course_app
+description: A Flutter course platform app with GetX state management
+
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  get: ^4.6.6
+  carousel_slider: ^5.0.0
+  cached_network_image: ^3.3.0
+  intl: ^0.19.0
+  shared_preferences: ^2.2.2
+  http: ^1.1.0
+  flutter_pdfview: ^1.4.0+1
+  path_provider: ^2.1.5
+  firebase_core: ^3.13.1
+  firebase_auth: ^5.5.4
+  cloud_firestore: ^5.6.8
+  image_picker: ^1.1.2
+  file_picker: ^10.2.0
+  firebase_storage: ^12.4.8
+  uuid: ^4.5.1
+  flutter_launcher_icons: ^0.14.4
+  launcher_name: ^1.0.2
+  razorpay_flutter: ^1.4.0
+
+launcher_name:
+  default: "PSC"
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - images/
+#    - assets/icons/
+#
+##  fonts:
+#    - family: Roboto
+#      fonts:
+#        - asset: fonts/Roboto-Regular.ttf
+#        - asset: fonts/Roboto-Bold.ttf
+#          weight: 700

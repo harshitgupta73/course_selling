@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "316636660599",
+    "project_id": "prep-study-center",
+    "storage_bucket": "prep-study-center.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316636660599:android:2e5dd2e34f0ede36165772",
+        "android_client_info": {
+          "package_name": "com.gyanvidigital.course_selling.course_selling"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAtH_gFtudc2Qmj-_wZYjSJDYmy6uTYQSY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
