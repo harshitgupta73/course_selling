@@ -150,8 +150,7 @@ class _LoginScreenState extends State<LoginScreen>
                         child: CircleAvatar(
                           radius: 54,
                           backgroundColor: Colors.white.withOpacity(0.7),
-                          child: const Icon(Icons.school,
-                              size: 54, color: Color(0xFF6D5FFD)),
+                          backgroundImage: const AssetImage("images/psc_logo.jpg"),
                         ),
                       ),
                     ),

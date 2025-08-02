@@ -121,8 +121,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   child: CircleAvatar(
                     radius: 54,
                     backgroundColor: Colors.white.withOpacity(0.7),
-                    child: Icon(Icons.person_add_alt_1,
-                        size: 54, color: Color(0xFF6D5FFD)),
+                    backgroundImage: const AssetImage("images/psc_logo.jpg"),
+
                   ),
                 ),
                 SizedBox(height: 32),

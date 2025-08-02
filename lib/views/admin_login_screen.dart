@@ -108,8 +108,8 @@ class _AdminLoginScreenState extends State<AdminLoginScreen> {
                   child: CircleAvatar(
                     radius: 54,
                     backgroundColor: Colors.white.withOpacity(0.7),
-                    child: const Icon(Icons.admin_panel_settings,
-                        size: 54, color: Color(0xFF6D5FFD)),
+                    backgroundImage: const AssetImage("images/psc_logo.jpg"),
+
                   ),
                 ),
                 const SizedBox(height: 32),

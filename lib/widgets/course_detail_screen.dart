@@ -190,7 +190,7 @@ class _CourseDetailScreenState extends State<CourseDetailScreen> {
                         label: 'Duration',
                         color: Colors.orange,
                       ),
-                      const SizedBox(width: 24),
+                      const SizedBox(width: 24), // 345678rtyuio567uikl
                       _buildStatItem(
                         icon: Icons.attach_money,
                         value: widget.chapter.price.toStringAsFixed(0),

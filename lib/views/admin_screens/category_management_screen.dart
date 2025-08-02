@@ -229,7 +229,6 @@ import 'dart:io';
 import 'package:course_app/controllers/course_controller.dart';
 import 'package:course_app/controllers/image_picker_controller.dart';
 import 'package:course_app/models/category.dart';
-import 'package:course_app/models/subject.dart';
 import 'package:course_app/services/category_services.dart';
 import 'package:course_app/services/storage_services.dart';
 import 'package:flutter/material.dart';
